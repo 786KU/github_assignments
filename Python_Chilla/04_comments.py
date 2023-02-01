@@ -1,0 +1,1 @@
+# I know what it means by commenting, shortcut key in ptyhon is ctrl+/  

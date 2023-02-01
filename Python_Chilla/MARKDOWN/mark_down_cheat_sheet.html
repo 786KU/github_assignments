@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mark_down_cheat_sheet.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="1---headings">1 - Headings</h1>
+<p>How to give headings in markdown file?</p>
+<h1 id="heading-1">Heading 1</h1>
+<h2 id="heading-2">Heading 2</h2>
+<h3 id="heading-3">Heading 3</h3>
+<h4 id="heading-4">Heading 4</h4>
+<p>You can give headings upto 6 # tag</p>
+<h1 id="2---block-of-wordscitation">2 - Block of words/citation</h1>
+<p>This is a normal text.</p>
+<blockquote>
+<p>This is a block of special text.</p>
+<p>This is second line.</p>
+</blockquote>
+<h1 id="3---line-breaks">3 - Line Breaks</h1>
+<p>This is a 40 days long course Data Science with Python AKA</p>
+<p>Python ka Chilla with Baba Ammar. \</p>
+<p>This is a second line.<br>
+Line break can be given with a single/double enter or \ sign.</p>
+<h1 id="4---combine-two-things">4 - Combine two things</h1>
+<p>Block of words and headings</p>
+<blockquote>
+<h2 id="heading-2">Heading 2</h2>
+</blockquote>
+<h1 id="5--face-of-text">5- Face of text</h1>
+<p><strong>Bold</strong></p>
+<p><em>Italic</em></p>
+<p><em><strong>Bold and italic</strong></em></p>
+<p>or you can use following signs</p>
+<p><strong>Bold</strong></p>
+<p><em>Italic</em></p>
+<p><em><strong>Bold and Italic</strong></em></p>
+<h1 id="6---bullet-points-or-list">6 - Bullet points or list</h1>
+<ul>
+<li>Day1</li>
+<li>Day2</li>
+<li>Day3</li>
+<li>Day4</li>
+<li>Day5</li>
+<li>Day6
+<ul>
+<li>Day-6a
+<ul>
+<li>Anything</li>
+</ul>
+</li>
+<li>Day-6b</li>
+</ul>
+</li>
+<li>Day7</li>
+<li>Day8</li>
+</ul>
+<p>For numbering</p>
+<ol>
+<li>
+<p>Day1</p>
+</li>
+<li>
+<p>Day2</p>
+</li>
+<li>
+<p>Day3</p>
+</li>
+<li>
+<p>Day4</p>
+</li>
+<li>
+<p>Day5</p>
+</li>
+<li>
+<p>Day6</p>
+<ol start="2">
+<li>Day-6a</li>
+<li>Day-6b</li>
+</ol>
+</li>
+<li>
+<p>Day7</p>
+</li>
+</ol>
+<p>you can copy and paste and it knows that it needs to put numbering.</p>
+<p>You can make a list of numbering using * or #</p>
+<p><strong>using */+</strong></p>
+<ul>
+<li>day 1</li>
+</ul>
+<ul>
+<li>day 2</li>
+</ul>
+<h1 id="7---linepage-breaks">7 - Line/Page breaks</h1>
+<p>This is page 1.</p>
+<hr>
+<hr>
+<hr>
+<p>This is page 2.</p>
+<h1 id="8--link-and-hyperlinks">8-  Link and Hyperlinks</h1>
+<p>The following is the link.</p>
+<p><a href="https://www.youtube.com/@Codanics">https://www.youtube.com/@Codanics</a></p>
+<p>The following is Hyperlink, i.e., text is showing and link is attached into it behind.</p>
+<p><a href="https://www.youtube.com/@Codanics">This is the link for Codanics channel</a></p>
+<p>You can make a key to the link by following:</p>
+<p>The channel link to Baba Ammar is <a href="https://www.youtube.com/@Codanics">here</a>.</p>
+<h1 id="9---images-and-figures-with-link">9 - Images and figures with link</h1>
+<p>To join this course, please scan the qr code using the follwoing image.</p>
+<p>The following will open the image via the link as before.</p>
+<p><a href="QR.png">QR</a></p>
+<p>The follwing will show the image.</p>
+<p><img src="QR.png" alt="QR"></p>
+<blockquote>
+<p>How to comment a markdown? And what is its shortcut key? find it?</p>
+</blockquote>
+<p>To give a link to an online image:</p>
+<p><img src="https://www.google.com/search?q=codanics&amp;sxsrf=AJOqlzX0GeG0sQzOUkuq7gu0Rdgi_iDHTQ:1675022550133&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=2ahUKEwjhnd2gye38AhWZ8LsIHUovD4MQ_AUoAXoECAIQAw&amp;biw=1366&amp;bih=568&amp;dpr=1#imgrc=jSNIAJI341a1QM" alt="Codanics"></p>
+<h1 id="10---adding-code-or-code-block">10 - Adding code or code block</h1>
+<p>To print a string use, <code>print(&quot;Codanincs&quot;)</code></p>
+<p><code>print(&quot;Hello Mr. Dawood&quot;)</code></p>
+<p>Now to add a code block (use this, its more convenient):</p>
+<blockquote>
+<p>This code will show colors according to pyhton language syntax</p>
+</blockquote>
+<pre class="hljs"><code><div>x=<span class="hljs-number">5</span>+<span class="hljs-number">6</span>
+y=<span class="hljs-number">3</span><span class="hljs-number">-1</span>
+z=x-y
+print(z)
+</div></code></pre>
+<blockquote>
+<p>This code will show colors according to R language syntax</p>
+</blockquote>
+<pre class="hljs"><code><div>x=<span class="hljs-number">5</span>+<span class="hljs-number">6</span>
+y=<span class="hljs-number">3</span>-<span class="hljs-number">1</span>
+z=x-y
+print(z)
+</div></code></pre>
+<blockquote>
+<p>This code will show colors according to html language syntax</p>
+</blockquote>
+<pre class="hljs"><code><div>x=5+6
+y=3-1
+z=x-y
+print(z)
+</div></code></pre>
+<h1 id="11---adding-tables">11 - Adding tables</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">species</th>
+<th style="text-align:center">petal_length</th>
+<th style="text-align:right">sepal_length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">virginca</td>
+<td style="text-align:center">19.3</td>
+<td style="text-align:right">10.2</td>
+</tr>
+<tr>
+<td style="text-align:left">setosa</td>
+<td style="text-align:center">12.3</td>
+<td style="text-align:right">9.2</td>
+</tr>
+<tr>
+<td style="text-align:left">virginca</td>
+<td style="text-align:center">19.3</td>
+<td style="text-align:right">15.2</td>
+</tr>
+<tr>
+<td style="text-align:left">versicolor</td>
+<td style="text-align:center">17.8</td>
+<td style="text-align:right">12.7</td>
+</tr>
+</tbody>
+</table>
+<h1 id="12--contents">12- Contents</h1>
+<p><a href="#1---headings">1- Headings</a></p>
+<p><a href="#2---block-of-words">2- block-of-words/citations</a></p>
+<p><a href="#3---line-breaks">3- line-breaks</a></p>
+<p><a href="#4---combine-two-things">4- combine-two-things</a></p>
+<p><a href="#5--face-of-text">5- face-of-text</a></p>
+<p><a href="#6---bullet-points-or-list">6- bullet-points-or-list</a><br>
+<a href="#7---linepage-breaks">7- linepage-breaks</a><br>
+<a href="#8---link-and-hyperlinks">8- link-and-hyperlinks</a><br>
+<a href="#9---images-and-figures-with-link">9- images-and-figures-with-link</a><br>
+<a href="#10---adding-code-or-code-block">10- adding-code-or-code-block</a><br>
+<a href="#11---adding-tables">11- adding-tables</a></p>
+<p>When you will click on any content in the preview file, you will be moved to that secion automatically.</p>
+<h1 id="13--install-extensions-now">13- Install extensions now</h1>
+<p>After installing extensions, you will see that you can do all these stuff using keyboard shortcuts, e.g., for bold, press ctrl+b, etc.,</p>
+<p><strong>sample text</strong></p>
+<p><em>italic</em></p>
+<p><em><strong>Bold and Italics</strong></em></p>
+<p><a href="https://www.youtube.com/@Codanics">Link</a></p>
+<table>
+<thead>
+<tr>
+<th>Column A</th>
+<th>Column B</th>
+<th>Column C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>B1</td>
+<td>C1</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>B2</td>
+<td>C2</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>B3</td>
+<td>C3</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Column A</th>
+<th>Column B</th>
+<th>Column C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>B1</td>
+<td>C1</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>B2</td>
+<td>C2</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>B3</td>
+<td>C3</td>
+</tr>
+</tbody>
+</table>
+<p>convert this file to all formats and see the results.</p>
+<p>Then, you will observe that, you can not copy from the block of codes, there will be no option available in the corner. However, this would be possible with a html file. But still, it will not work. However, finally, it will work when you will paste your code on the GitHub!</p>
+<h1 id="14--how-to-give-chnage-the-color-of-a-line">14- How to give chnage the color of a line:</h1>
+<span style="color:green">
+This is a colored line.
+</span>
+<p>you can give any name or even a color code from hexa color</p>
+<h1 id="15--adding-equations-in-markdown">15- Adding equations in Markdown</h1>
+<blockquote>
+<p>in-line math</p>
+</blockquote>
+<p>$this_{is}^{inline}$</p>
+<blockquote>
+<p>Math block
+$$
+\int_0^\infty\frac{x^3}{e^x-1},dx=\frac{\pi^4}{15}
+$$</p>
+</blockquote>
+<p>Further you can search how to write these equations from <a href="https://docs.mathjax.org/en/latest/">Math Jacks</a> or <a href="https://jupyterbook.org/en/stable/content/myst.html">MyST Markdown overview</a></p>
+<p>Here is the link to the source from where we learned all this.</p>
+<p><a href="https://code.visualstudio.com/docs/languages/markdown">Visual Studio Link to Mark down language</a></p>
+
+</body>
+</html>
